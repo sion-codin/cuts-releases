@@ -12,3 +12,7 @@ jobs:
         with:
           repository: "sion-codin/cuts-app"
           token: "${{ secrets.TOKEN_GITHUB }}"
+
+      - name: Build Cuts Compiler
+        run: set -o pipefail && xcodebuild -scheme SwiftTreeSitter -destination "${{ matrix.destination }}" test | xcbeautify
+
