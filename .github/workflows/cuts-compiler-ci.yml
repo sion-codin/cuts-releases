@@ -1,0 +1,14 @@
+name: Cuts Compiler CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: "sion-codin/cuts-app"
+          token: "${{ secrets.TOKEN_GITHUB }}"
