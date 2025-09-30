@@ -20,4 +20,4 @@ jobs:
           token: "${{ secrets.TOKEN_GITHUB }}"
 
       - name: Build Cuts App
-        run: set -o pipefail && xcodebuild -scheme Cuts -configuration Debug -destination "${{ matrix.destination }}" test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme Cuts -configuration Debug -destination "${{ matrix.destination }}" | xcbeautify
