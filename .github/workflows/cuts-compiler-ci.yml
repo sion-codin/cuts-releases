@@ -10,7 +10,8 @@ jobs:
     strategy:
         matrix:
           destination:
-            - "platform=macOS"
+            - "platform=macOS,arch=x86_64"
+            - "platform=macOS,arch=arm64"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,5 +20,5 @@ jobs:
           token: "${{ secrets.TOKEN_GITHUB }}"
 
       - name: Build Cuts Compiler
-        run: set -o pipefail && xcodebuild -scheme CutsCompiler -destination "${{ matrix.destination }}" | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme CutsCompiler -destination "${{ matrix.destination }}" CODE_SIGN_IDENTITY="" | xcbeautify
 
