@@ -20,5 +20,5 @@ jobs:
           token: "${{ secrets.TOKEN_GITHUB }}"
 
       - name: Build Cuts Compiler
-        run: set -o pipefail && xcodebuild -scheme CutsCompiler -destination "${{ matrix.destination }}" CODE_SIGN_IDENTITY="" | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme CutsCompiler -destination "${{ matrix.destination }}" CODE_SIGNING_ALLOWED=NO | xcbeautify
 
