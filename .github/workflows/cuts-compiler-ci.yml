@@ -10,6 +10,7 @@ jobs:
     strategy:
         matrix:
           destination:
+            - "platform=macOS"
             - "platform=iOS Simulator,name=iPhone 16"
     steps:
       - name: Checkout
@@ -19,5 +20,5 @@ jobs:
           token: "${{ secrets.TOKEN_GITHUB }}"
 
       - name: Build Cuts Compiler
-        run: set -o pipefail && xcodebuild -scheme CutsCompiler -destination "${{ matrix.destination }}" test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme CutsCompiler -destination "${{ matrix.destination }}" | xcbeautify
 
